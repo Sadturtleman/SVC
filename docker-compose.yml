@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  android-build:
+    build: .
+    container_name: compose-builder
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["./gradlew", "assembleDebug"]
+    restart: "no"  # 컨테이너 종료 시 재시작 안 함
